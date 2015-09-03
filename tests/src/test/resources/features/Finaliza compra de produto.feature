@@ -1,6 +1,6 @@
 #language:pt
 Funcionalidade: CheckOut de produto
-@WIP
+
   Cenario: Usuário finaliza compra do produto
     Dado que o usuário acesse o site "http://www.walmart.com.br"
     Quando o usuário pesquisa produto com termo "tv"

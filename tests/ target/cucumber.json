@@ -10,15 +10,15 @@
     "elements": [
       {
         "line": 4,
-        "name": "Usuário finaliza compra do produto",
+        "name": "Usuário efetua login para compra",
         "description": "",
-        "id": "checkout-de-produto;usuário-finaliza-compra-do-produto",
+        "id": "login;usuário-efetua-login-para-compra",
         "type": "scenario",
         "keyword": "Cenario",
         "steps": [
           {
             "result": {
-              "duration": 23032555699,
+              "duration": 27971001015,
               "status": "passed"
             },
             "line": 5,
@@ -36,7 +36,7 @@
           },
           {
             "result": {
-              "duration": 3421220764,
+              "duration": 2432331563,
               "status": "passed"
             },
             "line": 6,
@@ -54,7 +54,7 @@
           },
           {
             "result": {
-              "duration": 13279320705,
+              "duration": 17254590239,
               "status": "passed"
             },
             "line": 7,
@@ -66,7 +66,7 @@
           },
           {
             "result": {
-              "duration": 10418522853,
+              "duration": 10940354943,
               "status": "passed"
             },
             "line": 8,
@@ -78,14 +78,20 @@
           },
           {
             "result": {
-              "duration": 31512489,
-              "status": "passed"
+              "status": "undefined"
             },
             "line": 9,
-            "name": "a página de login é apresentada",
-            "match": {
-              "location": "IntegrationStep2.a_página_de_login_é_apresentada()"
+            "name": "o usuário efetua login com sucesso",
+            "match": {},
+            "keyword": "E "
+          },
+          {
+            "result": {
+              "status": "undefined"
             },
+            "line": 10,
+            "name": "a página de seleção de endereço é apresentada",
+            "match": {},
             "keyword": "Então "
           }
         ],
@@ -97,10 +103,10 @@
         ]
       }
     ],
-    "name": "CheckOut de produto",
+    "name": "Login",
     "description": "",
-    "id": "checkout-de-produto",
+    "id": "login",
     "keyword": "Funcionalidade",
-    "uri": "features/Finaliza compra de produto.feature"
+    "uri": "features/Efetua Login.feature"
   }
 ]

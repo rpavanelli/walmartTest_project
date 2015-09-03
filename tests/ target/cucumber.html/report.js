@@ -1,4 +1,4 @@
-$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("features/Finaliza compra de produto.feature");
+$(document).ready(function() {var formatter = new CucumberHTML.DOMFormatter($('.cucumber-report'));formatter.uri("features/Efetua Login.feature");
 formatter.feature({
   "comments": [
     {
@@ -7,16 +7,16 @@ formatter.feature({
     }
   ],
   "line": 2,
-  "name": "CheckOut de produto",
+  "name": "Login",
   "description": "",
-  "id": "checkout-de-produto",
+  "id": "login",
   "keyword": "Funcionalidade"
 });
 formatter.scenario({
   "line": 4,
-  "name": "Usuário finaliza compra do produto",
+  "name": "Usuário efetua login para compra",
   "description": "",
-  "id": "checkout-de-produto;usuário-finaliza-compra-do-produto",
+  "id": "login;usuário-efetua-login-para-compra",
   "type": "scenario",
   "keyword": "Cenario",
   "tags": [
@@ -48,7 +48,12 @@ formatter.step({
 });
 formatter.step({
   "line": 9,
-  "name": "a página de login é apresentada",
+  "name": "o usuário efetua login com sucesso",
+  "keyword": "E "
+});
+formatter.step({
+  "line": 10,
+  "name": "a página de seleção de endereço é apresentada",
   "keyword": "Então "
 });
 formatter.match({
@@ -61,7 +66,7 @@ formatter.match({
   "location": "IntegrationStep.que_o_usuário_acesse_o_site(String)"
 });
 formatter.result({
-  "duration": 23032555699,
+  "duration": 27971001015,
   "status": "passed"
 });
 formatter.match({
@@ -74,28 +79,29 @@ formatter.match({
   "location": "IntegrationStep.o_usuário_pesquisa_produto_com_termo(String)"
 });
 formatter.result({
-  "duration": 3421220764,
+  "duration": 2432331563,
   "status": "passed"
 });
 formatter.match({
   "location": "IntegrationStep1.o_usuário_adiciona_o_produto_no_carrinho()"
 });
 formatter.result({
-  "duration": 13279320705,
+  "duration": 17254590239,
   "status": "passed"
 });
 formatter.match({
   "location": "IntegrationStep2.o_usuário_finaliza_a_compra_do_produto()"
 });
 formatter.result({
-  "duration": 10418522853,
+  "duration": 10940354943,
   "status": "passed"
 });
-formatter.match({
-  "location": "IntegrationStep2.a_página_de_login_é_apresentada()"
-});
+formatter.match({});
 formatter.result({
-  "duration": 31512489,
-  "status": "passed"
+  "status": "undefined"
+});
+formatter.match({});
+formatter.result({
+  "status": "undefined"
 });
 });

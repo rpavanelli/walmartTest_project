@@ -4,16 +4,15 @@ import static org.junit.Assert.assertTrue;
 
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
-
+import org.openqa.selenium.WebElement;
 import tests.walmart.selenium.WebBrowser;
 
-public class ResultSearchPage {
+public class ResultSearchPage extends AbstractPage{
 
-	private WebBrowser browser;
 	private By resultField = By.cssSelector("span.result-items");
 	private By firstProductOnResult = By.xpath("//*[@id='category-products']/section/ul/li[1]/div/a/span");
 	private By firstProductBuyButton = By.xpath("//*[@id='buybox-Walmart']/div[2]/div/div[5]/button/span[2]");
-	private By buyContinueButton = By.xpath("//*[@id='navegaCarrinho']");
+	private By buyContinueButton = By.id("navegaCarrinho");
 	private String termResult;
 
 	public ResultSearchPage(WebBrowser browser) {
@@ -35,7 +34,8 @@ public class ResultSearchPage {
 		termResult = browser.driver().findElement(firstProductOnResult).getText();
 		browser.driver().findElement(firstProductOnResult).click();
 		browser.driver().findElement(firstProductBuyButton).click();
-		browser.driver().findElement(buyContinueButton).click();
+		WebElement continueButton = waitForElement(buyContinueButton, 5);
+		continueButton.click();
 		return termResult;
 	}
 }

@@ -19,7 +19,7 @@ public class IntegrationStep1 {
     
     @Então("^a página do carrinho de compra deverá conter produto adicionado$")
     public void a_página_do_carrinho_de_compra_deverá_conter_produto_adicionado() throws Throwable {
-    	Thread.sleep(2000);
+    	Thread.sleep(10000);
     	cartPage.assertThatCartHasProduct(productName);
     }
 

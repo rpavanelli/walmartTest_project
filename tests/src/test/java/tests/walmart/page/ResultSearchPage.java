@@ -34,7 +34,7 @@ public class ResultSearchPage extends AbstractPage{
 		termResult = browser.driver().findElement(firstProductOnResult).getText();
 		browser.driver().findElement(firstProductOnResult).click();
 		browser.driver().findElement(firstProductBuyButton).click();
-		WebElement continueButton = waitForElement(buyContinueButton, 5);
+		WebElement continueButton = waitForElement(buyContinueButton, 10);
 		continueButton.click();
 		return termResult;
 	}

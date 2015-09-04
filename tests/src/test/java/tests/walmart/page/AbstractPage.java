@@ -5,20 +5,38 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import tests.walmart.selenium.WebBrowser;
 
 public abstract class AbstractPage {
 
-	protected WebBrowser browser;
+    private final WebBrowser browser;
 
-	public WebElement waitForElement(final By by, int timeinSeconds){
-		return
-		new WebDriverWait(browser.driver() , timeinSeconds).until(new ExpectedCondition<WebElement>() {
-			@Override
-			public WebElement apply(WebDriver webDriver) {
-				return webDriver.findElement(by);
-			}
-		});
-	}
+    protected AbstractPage() {
+        this.browser = WebBrowser.getInstance();
+    }
+
+    public WebElement waitForElement(final By by, int timeInSeconds) {
+        WebDriverWait webDriverWait = new WebDriverWait(getDriver(), timeInSeconds);
+        return webDriverWait.until(new ExpectedCondition<WebElement>() {
+            public WebElement apply(WebDriver webDriver) {
+                return webDriver.findElement(by);
+            }
+        });
+    }
+
+    public WebDriver waitIframe(final By by, int timeInSeconds) {
+        return getDriver().switchTo().frame(waitForElement(by, timeInSeconds));
+    }
+
+    public void visit(String url) {
+        getDriver().get(url);
+    }
+
+    public WebElement findElement(By by) {
+        return getDriver().findElement(by);
+    }
+
+    public WebDriver getDriver() {
+        return browser.driver();
+    }
 }

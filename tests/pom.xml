@@ -8,8 +8,8 @@
 	<packaging>jar</packaging>
 	<contributors>
 		<contributor>
-			<name>Waldinar Oliveira Neto</name>
-			<url>http://github.com/netoht</url>
+			<name>Rafael Henrique Pavanelli</name>
+			<url>http://github.com/rpavanelli/walmartTest_project/</url>
 		</contributor>
 	</contributors>
 	<licenses>
@@ -109,23 +109,6 @@
 		<!-- Selenium -->
 		<!-- Tests -->
 	</dependencies>
-	<scm>
-		<url>https://github.com/netoht/cucumber-example.git</url>
-		<connection>scm:git:https://github.com/netoht/cucumber-example.git</connection>
-		<developerConnection>scm:git:https://github.com/netoht/cucumber-example.git</developerConnection>
-		<tag>HEAD</tag>
-	</scm>
-	<issueManagement>
-		<system>GitHub Issue Management</system>
-		<url>https://github.com/netoht/cucumber-example/issues</url>
-	</issueManagement>
-	<distributionManagement>
-		<repository>
-			<id>sonatype-nexus-staging</id>
-			<name>Nexus Release Repository</name>
-			<url>http://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-		</repository>
-	</distributionManagement>
 	<build>
 		<plugins>
 			<plugin>

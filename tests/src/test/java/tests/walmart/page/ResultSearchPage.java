@@ -1,41 +1,31 @@
 package tests.walmart.page;
 
-import static org.junit.Assert.assertTrue;
-
 import org.apache.commons.lang3.StringUtils;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import tests.walmart.selenium.WebBrowser;
 
-public class ResultSearchPage extends AbstractPage{
+public class ResultSearchPage extends AbstractPage {
 
-	private By resultField = By.cssSelector("span.result-items");
-	private By firstProductOnResult = By.xpath("//*[@id='category-products']/section/ul/li[1]/div/a/span");
-	private By firstProductBuyButton = By.xpath("//*[@id='buybox-Walmart']/div[2]/div/div[5]/button/span[2]");
-	private By buyContinueButton = By.id("navegaCarrinho");
-	private String termResult;
+    private By resultField = By.cssSelector("span.result-items");
+    private By firstProductOnResult = By.xpath("//*[@id='category-products']/section/ul/li[1]/div/a/span");
+    private By firstProductBuyButton = By.xpath("//*[@id='buybox-Walmart']/div[2]/div/div[5]/button/span[2]");
+    private By buyContinueButton = By.id("navegaCarrinho");
+    private String termResult;
 
-	public ResultSearchPage(WebBrowser browser) {
-		this.browser = browser;
-	}
+    public int getLeastOneResult() {
+        String result = findElement(resultField).getText();
+        return Integer.valueOf(StringUtils.substringBefore(result, " "));
+    }
 
-	public void assertThatExistAtLeastOneResult() {
-		String result = browser.driver().findElement(resultField).getText();
-		Integer numberResult = Integer.valueOf(StringUtils.substringBefore(result, " "));
-		assertTrue(numberResult > 0);
-	}
+    public String getOneProductOnResult() {
+        return findElement(firstProductOnResult).getText();
+    }
 
-	public void assertThatExistOneProductOnResult(String term) {
-		termResult = browser.driver().findElement(firstProductOnResult).getText();
-		assertTrue(termResult.toLowerCase().contains(term.toLowerCase()));
-	}
+    public String addFirstProductOnCart() {
+        termResult = findElement(firstProductOnResult).getText();
+        findElement(firstProductOnResult).click();
+        findElement(firstProductBuyButton).click();
 
-	public String addFirstProductOnCart() {
-		termResult = browser.driver().findElement(firstProductOnResult).getText();
-		browser.driver().findElement(firstProductOnResult).click();
-		browser.driver().findElement(firstProductBuyButton).click();
-		WebElement continueButton = waitForElement(buyContinueButton, 10);
-		continueButton.click();
-		return termResult;
-	}
+        waitForElement(buyContinueButton, 10).click();
+        return termResult;
+    }
 }

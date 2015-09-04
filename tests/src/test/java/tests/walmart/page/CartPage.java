@@ -1,31 +1,19 @@
 package tests.walmart.page;
 
-import org.junit.Assert;
 import org.openqa.selenium.By;
-
-import tests.walmart.selenium.WebBrowser;
 
 public class CartPage extends AbstractPage {
 
-	private By productNameOnCart = By.xpath("//*[@id='main']/div/section/div/article/ul/li/ul/li[1]/div/div[1]/a");
-	private By finishButton = By.xpath("//*[@id='btn-finalize-cart']");
-	
-	public CartPage(WebBrowser browser) {
-		this.browser = browser;
-	}
+    private By productNameOnCart = By.cssSelector("#category-products section ul li.shelf-item a");
+    private By finishButton = By.id("btn-finalize-cart");
+    private By cartButton = By.cssSelector("header div.cart a.cart-link");
 
-	public void assertThatCartHasProduct(String productName) {
-		visit();
-		String productNameOnCartText = browser.driver().findElement(productNameOnCart).getText();
-		Assert.assertTrue(productNameOnCartText.toLowerCase().trim().equals(productName.toLowerCase().trim()));
-	}
+    public String getCartHasProduct() {
+        return waitForElement(productNameOnCart, 5).getText();
+    }
 
-	public void visit() {
-		browser.driver().get("https://www2.walmart.com.br/checkout/content/carrinho/");
-	}
-	
-	public void finishBuy() {
-		visit();
-		browser.driver().findElement(finishButton).click();
-	}
+    public void finishBuy() {
+        findElement(cartButton).click();
+        waitForElement(finishButton, 5).click();
+    }
 }
